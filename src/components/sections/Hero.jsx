@@ -177,23 +177,23 @@ const Hero = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Content */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate={inView ? 'visible' : 'hidden'}
-            className="text-left"
+            className="text-center lg:text-left"
           >
-            <motion.div variants={itemVariants} className="mb-6">
-              <span className="inline-block px-4 py-2 bg-blue-50 dark:bg-blue-900/30 text-primary dark:text-blue-400 rounded-full text-sm font-medium">
+            <motion.div variants={itemVariants} className="mb-4 sm:mb-6">
+              <span className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-blue-50 dark:bg-blue-900/30 text-primary dark:text-blue-400 rounded-full text-xs sm:text-sm font-medium">
                 Welcome to my portfolio
               </span>
             </motion.div>
 
             <motion.h1
               variants={itemVariants}
-              className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-gray-900 dark:text-white mb-6 leading-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 leading-tight"
             >
               Hi, I'm{' '}
               <span className="text-primary dark:text-blue-400 block mt-2">
@@ -203,7 +203,7 @@ const Hero = () => {
 
             <motion.p
               variants={itemVariants}
-              className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 mb-4 font-medium"
+              className="text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-3 sm:mb-4 font-medium"
             >
               Java Learner & AI Enthusiast
 
@@ -211,25 +211,25 @@ const Hero = () => {
 
             <motion.p
               variants={itemVariants}
-              className="text-base sm:text-lg text-gray-600 dark:text-gray-400 mb-8 leading-relaxed"
+              className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 mb-6 sm:mb-8 leading-relaxed"
             >
               Exploring AI technologies and core concepts
             </motion.p>
 
             <motion.div
               variants={itemVariants}
-              className="flex flex-wrap items-center gap-4 mb-8"
+              className="flex flex-col sm:flex-row flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 mb-6 sm:mb-8"
             >
               <motion.button
                 onClick={() => scrollToSection('#projects')}
-                className="px-8 py-4 bg-primary hover:bg-blue-600 text-white font-semibold rounded-full transition-all shadow-lg hover:shadow-xl"
+                className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-primary hover:bg-blue-600 text-white font-semibold rounded-full transition-all shadow-lg hover:shadow-xl text-sm sm:text-base"
                 whileHover={{ scale: 1.05 }}
               >
                 View My Work
               </motion.button>
               <motion.button
                 onClick={() => scrollToSection('#contact')}
-                className="px-8 py-4 bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-white dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-400 dark:hover:text-white font-semibold rounded-full transition-all"
+                className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-white dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-400 dark:hover:text-white font-semibold rounded-full transition-all text-sm sm:text-base"
                 whileHover={{ scale: 1.05 }}
               >
                 Get In Touch
@@ -238,13 +238,13 @@ const Hero = () => {
 
             <motion.div
               variants={itemVariants}
-              className="flex items-center space-x-6"
+              className="flex items-center justify-center lg:justify-start space-x-4 sm:space-x-6"
             >
               <motion.a
                 href="https://github.com/BHUVANESHWARAN-S47"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-blue-400 transition-colors text-3xl"
+                className="text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-blue-400 transition-colors text-2xl sm:text-3xl"
                 whileHover={{ scale: 1.2 }}
               >
                 <FaGithub />
@@ -253,14 +253,14 @@ const Hero = () => {
                 href="https://www.linkedin.com/in/bhuvaneshwaran-s-645b5536a/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-blue-400 transition-colors text-3xl"
+                className="text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-blue-400 transition-colors text-2xl sm:text-3xl"
                 whileHover={{ scale: 1.2 }}
               >
                 <FaLinkedin />
               </motion.a>
               <motion.a
                 href="mailto:bhuvaneshwaran.s2005@gmail.com"
-                className="text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-blue-400 transition-colors text-3xl"
+                className="text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-blue-400 transition-colors text-2xl sm:text-3xl"
                 whileHover={{ scale: 1.2 }}
               >
                 <HiMail />
@@ -284,7 +284,7 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ delay: 1 }}
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-6 sm:bottom-10 left-1/2 transform -translate-x-1/2"
         >
           <motion.button
             onClick={() => scrollToSection('#about')}
@@ -292,7 +292,7 @@ const Hero = () => {
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
           >
-            <FaArrowDown className="text-3xl" />
+            <FaArrowDown className="text-2xl sm:text-3xl" />
           </motion.button>
         </motion.div>
       </div>

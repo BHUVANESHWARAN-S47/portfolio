@@ -86,12 +86,12 @@ const About = () => {
           initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
         >
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-heading font-bold text-gray-900 dark:text-white mb-4">
+          <motion.div variants={itemVariants} className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-gray-900 dark:text-white mb-4">
               About Me
             </h2>
             <div className="w-20 h-1 bg-primary dark:bg-blue-400 mx-auto mb-6"></div>
-            <p className="text-gray-600 dark:text-gray-300 text-lg max-w-2xl mx-auto">
+            <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg max-w-2xl mx-auto px-4">
               Full Stack Developer & Creative Problem Solver
             </p>
           </motion.div>

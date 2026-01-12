@@ -66,21 +66,21 @@ const Experience = () => {
           initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
         >
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-heading font-bold text-gray-900 dark:text-white mb-4">
+          <motion.div variants={itemVariants} className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-gray-900 dark:text-white mb-4">
               Education
             </h2>
             <div className="w-20 h-1 bg-primary dark:bg-blue-400 mx-auto mb-6"></div>
-            <p className="text-gray-600 dark:text-gray-300 text-lg max-w-2xl mx-auto">
+            <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg max-w-2xl mx-auto px-4">
               My educational background and academic achievements
             </p>
           </motion.div>
             
             <div className="relative">
               {/* Timeline Line */}
-              <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gray-300 dark:bg-gray-700 transform md:-translate-x-1/2"></div>
+              <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gray-300 dark:bg-gray-700 transform md:-translate-x-1/2"></div>
 
-              <div className="space-y-12">
+              <div className="space-y-8 sm:space-y-12">
                 {education.map((edu, index) => (
                   <motion.div
                     key={edu.id}
@@ -90,7 +90,7 @@ const Experience = () => {
                     }`}
                   >
                     {/* Timeline Dot */}
-                    <div className="absolute left-8 md:left-1/2 w-4 h-4 bg-primary dark:bg-blue-400 rounded-full border-4 border-gray-50 dark:border-gray-800 transform -translate-x-1/2 z-10"></div>
+                    <div className="absolute left-4 md:left-1/2 w-3 h-3 sm:w-4 sm:h-4 bg-primary dark:bg-blue-400 rounded-full border-4 border-gray-50 dark:border-gray-800 transform -translate-x-1/2 z-10"></div>
 
                     {/* Content Card */}
                     <div

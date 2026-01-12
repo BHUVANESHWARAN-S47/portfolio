@@ -84,24 +84,24 @@ const Skills = () => {
           initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
         >
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-heading font-bold text-gray-900 dark:text-white mb-4">
+          <motion.div variants={itemVariants} className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-gray-900 dark:text-white mb-4">
               Skills & Expertise
             </h2>
             <div className="w-20 h-1 bg-primary dark:bg-blue-400 mx-auto mb-6"></div>
-            <p className="text-gray-600 dark:text-gray-300 text-lg max-w-2xl mx-auto">
+            <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg max-w-2xl mx-auto px-4">
               Technologies and tools I use to bring ideas to life
             </p>
           </motion.div>
 
           {/* Skills by Category - Icon Card Layout */}
-          <div className="space-y-12">
+          <div className="space-y-8 sm:space-y-12">
             {skillCategories.map((category, categoryIndex) => (
               <motion.div key={categoryIndex} variants={itemVariants}>
-                <h3 className="text-2xl font-heading font-bold text-gray-900 dark:text-white mb-6 text-center">
+                <h3 className="text-xl sm:text-2xl font-heading font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 text-center">
                   {category.category}
                 </h3>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-4">
                   {category.skills.map((skill, skillIndex) => (
                     <motion.div
                       key={skillIndex}
@@ -111,12 +111,12 @@ const Skills = () => {
                       whileHover={{ y: -10, scale: 1.05 }}
                       className="group relative"
                     >
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-purple-500/10 dark:from-blue-500/20 dark:to-purple-500/20 rounded-2xl blur-lg group-hover:blur-xl transition-all"></div>
-                      <div className="relative bg-white dark:bg-gray-700 p-6 rounded-2xl border-2 border-gray-200 dark:border-gray-600 group-hover:border-primary dark:group-hover:border-blue-400 transition-all flex flex-col items-center justify-center text-center h-full">
-                        <div className="text-4xl mb-3 text-primary dark:text-blue-400 group-hover:scale-125 transition-transform">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-purple-500/10 dark:from-blue-500/20 dark:to-purple-500/20 rounded-xl sm:rounded-2xl blur-lg group-hover:blur-xl transition-all"></div>
+                      <div className="relative bg-white dark:bg-gray-700 p-4 sm:p-6 rounded-xl sm:rounded-2xl border-2 border-gray-200 dark:border-gray-600 group-hover:border-primary dark:group-hover:border-blue-400 transition-all flex flex-col items-center justify-center text-center h-full">
+                        <div className="text-3xl sm:text-4xl mb-2 sm:mb-3 text-primary dark:text-blue-400 group-hover:scale-125 transition-transform">
                           {skillIcons[skill.name] || <FaDatabase />}
                         </div>
-                        <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-1 line-clamp-2">
+                        <h4 className="text-xs sm:text-sm font-semibold text-gray-900 dark:text-white mb-1 line-clamp-2">
                           {skill.name}
                         </h4>
                         <div className="flex items-center space-x-1">
