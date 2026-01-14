@@ -64,7 +64,10 @@ const Footer = () => {
 
         <div className="border-t border-gray-200 dark:border-gray-700 mt-8 pt-8 text-center text-gray-600 dark:text-gray-400 text-sm">
           <p className="flex items-center justify-center">
-            Made with <FaHeart className="text-red-500 mx-2" /> © {currentYear} All rights reserved.
+            Made with <FaHeart className="text-red-500 mx-2" /> by Bhuvanesh
+          </p>
+          <p className="mt-2">
+            © {currentYear} All rights reserved.
           </p>
         </div>
       </div>

@@ -22,7 +22,7 @@ export const skillCategories = [
       { name: "Time Management", level: 80, image: "https://img.icons8.com/fluency/96/time-management.png" },
       { name: "Problem Solving", level: 85, image: "https://img.icons8.com/fluency/96/light-on.png" },
       { name: "Adaptability", level: 80, image: "https://img.icons8.com/fluency/96/change.png" },
-      { name: "Leadership", level: 75, image: "https://img.icons8.com/fluency/96/leader.png" }
+      { name: "Leadership", level: 75, image: "https://img.icons8.com/color/96/manager.png" }
     ]
   }
 ];

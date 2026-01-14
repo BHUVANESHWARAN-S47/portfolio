@@ -33,17 +33,17 @@ const Skills = () => {
   const cardVariants = (index) => ({
     hidden: { 
       opacity: 0, 
-      scale: 0.8,
-      y: 50
+      scale: 0.9,
+      y: 20
     },
     visible: {
       opacity: 1,
       scale: 1,
       y: 0,
       transition: { 
-        duration: 0.5, 
+        duration: 0.4, 
         ease: 'easeOut', 
-        delay: index * 0.05
+        delay: index * 0.03
       },
     },
   });
@@ -101,32 +101,28 @@ const Skills = () => {
                       initial="hidden"
                       animate={inView ? 'visible' : 'hidden'}
                       whileHover={{ 
-                        y: -10, 
+                        y: -8, 
                         scale: 1.05,
-                        rotate: [0, -2, 2, 0],
-                        transition: { duration: 0.3 }
+                        transition: { duration: 0.2 }
                       }}
                       className="group relative"
                     >
                       <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-purple-500/20 dark:from-blue-500/30 dark:to-purple-500/30 rounded-2xl blur-xl group-hover:blur-2xl opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
-                      <div className="relative bg-white dark:bg-gray-700 p-5 sm:p-6 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-600 group-hover:border-primary dark:group-hover:border-blue-400 group-hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center text-center h-full">
-                        <div className="w-16 h-16 sm:w-20 sm:h-20 mb-3 sm:mb-4 relative">
+                      <div className="relative bg-white dark:bg-gray-700 p-5 sm:p-6 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-600 group-hover:border-primary dark:group-hover:border-blue-400 group-hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center text-center min-h-[160px] sm:min-h-[180px]">
+                        <div className="w-16 h-16 sm:w-20 sm:h-20 mb-3 sm:mb-4 flex items-center justify-center">
                           <img
                             src={skill.image}
                             alt={skill.name}
-                            className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
+                            className="w-full h-full object-contain transition-transform duration-300"
                           />
                         </div>
-                        <h4 className="text-xs sm:text-sm font-bold text-gray-900 dark:text-white mb-2 line-clamp-2">
+                        <h4 className="text-xs sm:text-sm font-bold text-gray-900 dark:text-white mb-2 line-clamp-2 min-h-[32px] flex items-center justify-center">
                           {skill.name}
                         </h4>
-                        <div className="flex items-center space-x-1">
+                        <div className="flex items-center justify-center space-x-1">
                           {[...Array(5)].map((_, i) => (
-                            <motion.div
+                            <div
                               key={i}
-                              initial={{ scale: 0 }}
-                              animate={inView ? { scale: 1 } : { scale: 0 }}
-                              transition={{ delay: skillIndex * 0.05 + i * 0.05 }}
                               className={`w-1.5 h-1.5 rounded-full ${
                                 i < Math.ceil(skill.level / 20)
                                   ? 'bg-primary dark:bg-blue-400'
