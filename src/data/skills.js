@@ -1,18 +1,28 @@
 export const skillCategories = [
   {
-    category: "Skills",
+    category: "Technical Skills",
     skills: [
-      { name: "Java", level: 85 },
-      { name: "Python", level: 80 },
-      { name: "HTML5", level: 85 },
-      { name: "CSS3", level: 80 },
-      { name: "JavaScript (Basics)", level: 70 },
-      { name: "Machine Learning (Fundamentals)", level: 75 },
-      { name: "NumPy", level: 70 },
-      { name: "Large Language Models (Concepts)", level: 65 },
-      { name: "MySQL", level: 75 },
-      { name: "MongoDB", level: 70 },
-      { name: "VS Code", level: 90 }
+      { name: "Java", level: 85, image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
+      { name: "Python", level: 80, image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+      { name: "HTML5", level: 85, image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+      { name: "CSS3", level: 80, image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+      { name: "JavaScript", level: 70, image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+      { name: "Machine Learning", level: 75, image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" },
+      { name: "NumPy", level: 70, image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" },
+      { name: "MySQL", level: 75, image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+      { name: "MongoDB", level: 70, image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+      { name: "VS Code", level: 90, image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" }
+    ]
+  },
+  {
+    category: "Soft Skills",
+    skills: [
+      { name: "Communication", level: 85, image: "https://img.icons8.com/fluency/96/communication.png" },
+      { name: "Team Work", level: 90, image: "https://img.icons8.com/fluency/96/collaboration.png" },
+      { name: "Time Management", level: 80, image: "https://img.icons8.com/fluency/96/time-management.png" },
+      { name: "Problem Solving", level: 85, image: "https://img.icons8.com/fluency/96/light-on.png" },
+      { name: "Adaptability", level: 80, image: "https://img.icons8.com/fluency/96/change.png" },
+      { name: "Leadership", level: 75, image: "https://img.icons8.com/fluency/96/leader.png" }
     ]
   }
 ];

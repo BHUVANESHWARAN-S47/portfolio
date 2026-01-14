@@ -1,37 +1,15 @@
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { FaReact, FaNodeJs, FaPython, FaDatabase, FaGitAlt, FaDocker, FaAws, FaFigma, FaVuejs, FaCss3Alt } from 'react-icons/fa';
-import { SiJavascript, SiTypescript, SiTailwindcss, SiNextdotjs, SiExpress, SiGraphql, SiMongodb, SiPostgresql, SiMysql, SiFirebase } from 'react-icons/si';
 import { skillCategories } from '../../data/skills';
-
-const skillIcons = {
-  'React': <FaReact />,
-  'JavaScript/TypeScript': <SiJavascript />,
-  'HTML/CSS': <FaCss3Alt />,
-  'Tailwind CSS': <SiTailwindcss />,
-  'Next.js': <SiNextdotjs />,
-  'Vue.js': <FaVuejs />,
-  'Node.js': <FaNodeJs />,
-  'Express': <SiExpress />,
-  'Python': <FaPython />,
-  'RESTful APIs': <FaNodeJs />,
-  'GraphQL': <SiGraphql />,
-  'MongoDB': <SiMongodb />,
-  'PostgreSQL': <SiPostgresql />,
-  'MySQL': <SiMysql />,
-  'Firebase': <SiFirebase />,
-  'Git/GitHub': <FaGitAlt />,
-  'Docker': <FaDocker />,
-  'AWS': <FaAws />,
-  'CI/CD': <FaGitAlt />,
-  'Figma': <FaFigma />
-};
 
 const Skills = () => {
   const [ref, inView] = useInView({
-    triggerOnce: true,
+    triggerOnce: false,
     threshold: 0.1,
   });
+
+  const { scrollYProgress } = useScroll();
+  const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -44,20 +22,29 @@ const Skills = () => {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 50 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: 'easeOut' },
+      transition: { duration: 0.6, ease: 'easeOut' },
     },
   };
 
   const cardVariants = (index) => ({
-    hidden: { opacity: 0, x: index % 2 === 0 ? -100 : 100 },
+    hidden: { 
+      opacity: 0, 
+      scale: 0.8,
+      y: 50
+    },
     visible: {
       opacity: 1,
-      x: 0,
-      transition: { duration: 0.8, ease: 'easeOut', delay: (index % 6) * 0.1 },
+      scale: 1,
+      y: 0,
+      transition: { 
+        duration: 0.5, 
+        ease: 'easeOut', 
+        delay: index * 0.05
+      },
     },
   });
 
@@ -66,16 +53,21 @@ const Skills = () => {
       {/* Animated Background Effects */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Mesh Gradient */}
-        <div
+        <motion.div
           className="absolute inset-0 opacity-30"
-          style={{
-            background: `
-              radial-gradient(at 20% 30%, rgba(59, 130, 246, 0.2) 0px, transparent 50%),
-              radial-gradient(at 80% 70%, rgba(168, 85, 247, 0.2) 0px, transparent 50%),
-              radial-gradient(at 50% 50%, rgba(236, 72, 153, 0.1) 0px, transparent 50%)
-            `,
-          }}
-        />
+          style={{ y }}
+        >
+          <div
+            style={{
+              background: `
+                radial-gradient(at 20% 30%, rgba(59, 130, 246, 0.2) 0px, transparent 50%),
+                radial-gradient(at 80% 70%, rgba(168, 85, 247, 0.2) 0px, transparent 50%),
+                radial-gradient(at 50% 50%, rgba(236, 72, 153, 0.1) 0px, transparent 50%)
+              `,
+              height: '100%',
+            }}
+          />
+        </motion.div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -94,35 +86,47 @@ const Skills = () => {
             </p>
           </motion.div>
 
-          {/* Skills by Category - Icon Card Layout */}
-          <div className="space-y-8 sm:space-y-12">
+          {/* Skills by Category - Image Card Layout */}
+          <div className="space-y-12 sm:space-y-16">
             {skillCategories.map((category, categoryIndex) => (
               <motion.div key={categoryIndex} variants={itemVariants}>
-                <h3 className="text-xl sm:text-2xl font-heading font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 text-center">
+                <h3 className="text-xl sm:text-2xl font-heading font-bold text-gray-900 dark:text-white mb-6 sm:mb-8 text-center">
                   {category.category}
                 </h3>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-4">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 sm:gap-6">
                   {category.skills.map((skill, skillIndex) => (
                     <motion.div
                       key={skillIndex}
                       variants={cardVariants(skillIndex)}
                       initial="hidden"
                       animate={inView ? 'visible' : 'hidden'}
-                      whileHover={{ y: -10, scale: 1.05 }}
+                      whileHover={{ 
+                        y: -10, 
+                        scale: 1.05,
+                        rotate: [0, -2, 2, 0],
+                        transition: { duration: 0.3 }
+                      }}
                       className="group relative"
                     >
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-purple-500/10 dark:from-blue-500/20 dark:to-purple-500/20 rounded-xl sm:rounded-2xl blur-lg group-hover:blur-xl transition-all"></div>
-                      <div className="relative bg-white dark:bg-gray-700 p-4 sm:p-6 rounded-xl sm:rounded-2xl border-2 border-gray-200 dark:border-gray-600 group-hover:border-primary dark:group-hover:border-blue-400 transition-all flex flex-col items-center justify-center text-center h-full">
-                        <div className="text-3xl sm:text-4xl mb-2 sm:mb-3 text-primary dark:text-blue-400 group-hover:scale-125 transition-transform">
-                          {skillIcons[skill.name] || <FaDatabase />}
+                      <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-purple-500/20 dark:from-blue-500/30 dark:to-purple-500/30 rounded-2xl blur-xl group-hover:blur-2xl opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+                      <div className="relative bg-white dark:bg-gray-700 p-5 sm:p-6 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-600 group-hover:border-primary dark:group-hover:border-blue-400 group-hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center text-center h-full">
+                        <div className="w-16 h-16 sm:w-20 sm:h-20 mb-3 sm:mb-4 relative">
+                          <img
+                            src={skill.image}
+                            alt={skill.name}
+                            className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
+                          />
                         </div>
-                        <h4 className="text-xs sm:text-sm font-semibold text-gray-900 dark:text-white mb-1 line-clamp-2">
+                        <h4 className="text-xs sm:text-sm font-bold text-gray-900 dark:text-white mb-2 line-clamp-2">
                           {skill.name}
                         </h4>
                         <div className="flex items-center space-x-1">
                           {[...Array(5)].map((_, i) => (
-                            <div
+                            <motion.div
                               key={i}
+                              initial={{ scale: 0 }}
+                              animate={inView ? { scale: 1 } : { scale: 0 }}
+                              transition={{ delay: skillIndex * 0.05 + i * 0.05 }}
                               className={`w-1.5 h-1.5 rounded-full ${
                                 i < Math.ceil(skill.level / 20)
                                   ? 'bg-primary dark:bg-blue-400'
